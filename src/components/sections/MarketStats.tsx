@@ -36,11 +36,11 @@ const MarketStats = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold text-white dark:text-white mb-4">
-            The Crypto Market Opportunity
+            The Bitcoin Ecosystem Opportunity
           </h2>
-          <p className="text-white dark:text-blue-400 max-w-2xl mx-auto">
-            Our innovative approach combines traditional fund management with blockchain
-            technology for maximum efficiency and transparency.
+          <p className="text-white dark:text-blue-400 max-w-2xl mx-auto text-xl">
+          Our innovative approach integrates traditional fund management with blockchain technology, delivering early exposure, maximum
+          liquidity, efficiency and transparency for your investments.
           </p>
         </motion.div>
 

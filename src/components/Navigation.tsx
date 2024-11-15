@@ -1,17 +1,4 @@
-import { Link } from 'react-scroll';
-
-const OrigamiBirdLogo = () => (
-  <svg
-    viewBox="0 0 100 100"
-    className="h-8 w-8"
-    fill="currentColor"
-  >
-    <path d="M20 50 L40 20 L60 40 L80 20 L60 60 L80 80 L40 60 L20 80 Z"
-          className="text-blue-600"
-          strokeLinejoin="round"
-    />
-  </svg>
-);
+import { Link } from "react-scroll";
 
 const Navigation = () => {
   return (
@@ -19,16 +6,22 @@ const Navigation = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <OrigamiBirdLogo />
-            <span className="text-2xl font-bold text-blue-900 dark:text-white">Otori</span>
+            <img
+              src="/logo.png"
+              alt="OTORI Logo"
+              className="h-8 w-8 object-contain"
+            />
+            <span className="text-2xl font-bold text-blue-900 dark:text-white">
+              OTORI
+            </span>
           </div>
 
           <div className="hidden md:flex space-x-8">
             {[
-              { to: 'market-stats', label: 'The Market' },
-              { to: 'how-it-works', label: 'How It Works' },
-              { to: 'about', label: 'About' },
-              { to: 'early-access', label: 'Early Access' },
+              { to: "market-stats", label: "The Market" },
+              { to: "how-it-works", label: "How It Works" },
+              { to: "about", label: "About" },
+              { to: "early-access", label: "Early Access" },
             ].map((item) => (
               <Link
                 key={item.to}
