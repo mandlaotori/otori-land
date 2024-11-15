@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { Send, Sparkles } from "lucide-react";
+import { db } from "../../../firebase";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+
 
 const EarlyAccessForm = () => {
   const [email, setEmail] = useState("");
@@ -12,12 +15,25 @@ const EarlyAccessForm = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
-      toast.success("Thank you for your interest! We'll be in touch soon.");
-      setEmail("");
+      try {
+        await addDoc(collection(db, "waitlist"), {
+          email,
+          timestamp: Timestamp.now()
+        });
+
+        toast.success("Thank you for your interest! We'll be in touch soon.");
+        setEmail("");
+      } catch (error) {
+        console.error("Error adding email:", error);
+        toast.error("Something went wrong. Please try again.");
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
@@ -52,32 +68,37 @@ const EarlyAccessForm = () => {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="relative">
-                <Input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full h-12 pl-4 pr-4 text-lg bg-white dark:bg-blue-900/50
-                  border-2 border-blue-100 dark:border-blue-800 rounded-lg
-                  focus:ring-2 focus:ring-yellow-500 focus:border-transparent
-                  transition-all duration-200"
-                  required
-                />
-              </div>
+        <div className="relative">
+          <Input
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full h-12 pl-4 pr-4 text-lg bg-white dark:bg-blue-900/50
+            border-2 border-blue-100 dark:border-blue-800 rounded-lg
+            focus:ring-2 focus:ring-yellow-500 focus:border-transparent
+            transition-all duration-200"
+            required
+            disabled={isLoading}
+          />
+        </div>
 
-              <Button
-                type="submit"
-                className="w-full h-14 bg-gradient-to-r from-yellow-400 to-yellow-500
-                hover:from-yellow-500 hover:to-yellow-600 text-blue-900
-                rounded-lg transform transition-all duration-200 hover:scale-[1.02]
-                hover:shadow-lg active:scale-[0.98] group"
-              >
-                <span className="text-lg font-semibold">Join the Waitlist</span>
-                <Send className="ml-2 h-5 w-5 transform transition-transform
-                duration-200 group-hover:translate-x-1" />
-              </Button>
-            </form>
+        <Button
+          type="submit"
+          className="w-full h-14 bg-gradient-to-r from-yellow-400 to-yellow-500
+          hover:from-yellow-500 hover:to-yellow-600 text-blue-900
+          rounded-lg transform transition-all duration-200 hover:scale-[1.02]
+          hover:shadow-lg active:scale-[0.98] group"
+          disabled={isLoading}
+        >
+          <span className="text-lg font-semibold">
+            {isLoading ? "Joining..." : "Join the Waitlist"}
+          </span>
+          <Send className="ml-2 h-5 w-5 transform transition-transform
+          duration-200 group-hover:translate-x-1" />
+        </Button>
+      </form>
+
           </div>
         </motion.div>
       </div>
