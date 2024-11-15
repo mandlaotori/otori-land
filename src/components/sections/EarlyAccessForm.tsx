@@ -35,8 +35,8 @@ const EarlyAccessForm = () => {
             Get Early Access
           </h2>
           <p className="text-blue-600 dark:text-blue-400">
-            Be among the first to access Otori's revolutionary crypto investment platform.
-            Sign up now for exclusive benefits and updates.
+          Skip the QUEUE. Get Updates First!
+
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-4">

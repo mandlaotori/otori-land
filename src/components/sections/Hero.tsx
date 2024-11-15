@@ -1,7 +1,7 @@
-import { Link } from 'react-scroll';
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { Link } from "react-scroll";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -25,8 +25,9 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl text-blue-600 dark:text-blue-400 max-w-2xl mx-auto"
           >
-            Join the next generation of crypto investment funds with institutional-grade
-            security and unparalleled market access.
+            Get priority access to early-stage blockchain investments with
+            transparent, on-chain insights and institutional-grade portfolio
+            management
           </motion.p>
 
           <motion.div
@@ -34,8 +35,17 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <Link to="early-access" spy={true} smooth={true} offset={-80} duration={500}>
-              <Button size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-blue-900">
+            <Link
+              to="early-access"
+              spy={true}
+              smooth={true}
+              offset={-80}
+              duration={500}
+            >
+              <Button
+                size="lg"
+                className="bg-yellow-500 hover:bg-yellow-600 text-blue-900"
+              >
                 Get Early Access
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
