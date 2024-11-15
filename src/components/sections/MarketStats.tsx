@@ -13,13 +13,13 @@ const MarketStats = () => {
     {
       icon: <Wallet className="h-8 w-8 text-yellow-500" />,
       value: 12.5,
-      label: 'B USD',
+      label: 'Billion USD',
       description: 'Total Bitcoin Startup Funding',
     },
     {
       icon: <TrendingUp className="h-8 w-8 text-yellow-500" />,
       value: 1.6,
-      label: 'T USD',
+      label: 'Trillion USD',
       description: 'Bitcoin Market Cap',
     },
   ];
