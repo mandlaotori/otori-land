@@ -1,47 +1,51 @@
 import { Link } from "react-scroll";
-import {
-  BarChart2,
-  HelpCircle,
-  Info,
-  Sparkles,
-  Home
-} from "lucide-react";
+import { BarChart2, HelpCircle, Info, Sparkles, Home } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Navigation = () => {
   const navItems = [
     {
       to: "hero",
-      icon: <Home className="h-7 w-7" strokeWidth={2.5} />,
-      activeIcon: <Home className="h-7 w-7" strokeWidth={2.5} fill="currentColor" />
+      icon: <Home className="h-6 w-6" strokeWidth={2.5} />,
+      activeIcon: (
+        <Home className="h-6 w-6" strokeWidth={2.5} fill="currentColor" />
+      ),
     },
     {
       to: "market-stats",
-      icon: <BarChart2 className="h-7 w-7" strokeWidth={2.5} />,
-      activeIcon: <BarChart2 className="h-7 w-7" strokeWidth={2.5} fill="currentColor" />
+      icon: <BarChart2 className="h-6 w-6" strokeWidth={2.5} />,
+      activeIcon: (
+        <BarChart2 className="h-6 w-6" strokeWidth={2.5} fill="currentColor" />
+      ),
     },
     {
       to: "how-it-works",
-      icon: <HelpCircle className="h-7 w-7" strokeWidth={2.5} />,
-      activeIcon: <HelpCircle className="h-7 w-7" strokeWidth={2.5} fill="currentColor" />
+      icon: <HelpCircle className="h-6 w-6" strokeWidth={2.5} />,
+      activeIcon: (
+        <HelpCircle className="h-6 w-6" strokeWidth={2.5} fill="currentColor" />
+      ),
     },
     {
       to: "about",
-      icon: <Info className="h-7 w-7" strokeWidth={2.5} />,
-      activeIcon: <Info className="h-7 w-7" strokeWidth={2.5} fill="currentColor" />
+      icon: <Info className="h-6 w-6" strokeWidth={2.5} />,
+      activeIcon: (
+        <Info className="h-6 w-6" strokeWidth={2.5} fill="currentColor" />
+      ),
     },
     {
       to: "early-access",
-      icon: <Sparkles className="h-7 w-7" strokeWidth={2.5} />,
-      activeIcon: <Sparkles className="h-7 w-7" strokeWidth={2.5} fill="currentColor" />
+      icon: <Sparkles className="h-6 w-6" strokeWidth={2.5} />,
+      activeIcon: (
+        <Sparkles className="h-6 w-6" strokeWidth={2.5} fill="currentColor" />
+      ),
     },
   ];
 
   const desktopLabels = {
     "market-stats": "The Market",
     "how-it-works": "How It Works",
-    "about": "About",
-    "early-access": "Early Access"
+    about: "About",
+    "early-access": "Early Access",
   };
 
   return (
@@ -92,8 +96,8 @@ const Navigation = () => {
         animate={{ y: 0 }}
         className="fixed bottom-0 left-0 right-0 bg-white dark:bg-blue-950 shadow-lg md:hidden z-50"
       >
-        <div className="flex justify-around items-center py-3 px-2">
-          {navItems.map((item) => (
+        <div className="flex justify-around items-center py-3 px-4">
+          {navItems.map((item, index) => (
             <Link
               key={item.to}
               to={item.to}
@@ -104,11 +108,11 @@ const Navigation = () => {
             >
               <motion.div
                 whileTap={{ scale: 0.85 }}
-                className="p-2 text-blue-900 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
+                className={`p-2 text-blue-900 dark:text-blue-400 hover:text-blue-600
+          dark:hover:text-blue-300 transition-colors
+          ${index === navItems.length - 1 ? "pr-2" : ""}`}
               >
-                <div className="stroke-[2.5px]">
-                  {item.icon}
-                </div>
+                <div className="stroke-[2.5px]">{item.icon}</div>
               </motion.div>
             </Link>
           ))}
