@@ -33,7 +33,7 @@ const Navigation = () => {
     {
       to: "early-access",
       icon: <Sparkles className="h-7 w-7" strokeWidth={2.5} />,
-      activeIcon: <Sparkles className="h-7 w-7" strokeWidth={2.5} fill="#000" />
+      activeIcon: <Sparkles className="h-7 w-7" strokeWidth={2.5} fill="currentColor" />
     },
   ];
 
