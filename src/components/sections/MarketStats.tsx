@@ -39,8 +39,7 @@ const MarketStats = () => {
             The Bitcoin Ecosystem Opportunity
           </h2>
           <p className="text-white dark:text-blue-400 max-w-2xl mx-auto text-xl">
-          Our innovative approach integrates traditional fund management with blockchain technology, delivering early exposure, maximum
-          liquidity, efficiency and transparency for your investments.
+          Capitalize on Bitcoin's momentum across both established markets and emerging innovations.
           </p>
         </motion.div>
 

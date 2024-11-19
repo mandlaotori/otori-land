@@ -12,6 +12,7 @@ const config = {
         sm: 'calc(var(--radius, 0.5rem) - 4px)',
       },
       colors: {
+        default: 'rgb(52, 62, 124)', // Renamed to default
         baseColor: 'rgb(52, 62, 124)',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
