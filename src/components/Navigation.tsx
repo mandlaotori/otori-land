@@ -1,5 +1,5 @@
 import { Link } from "react-scroll";
-import { BarChart2, HelpCircle, Info, Sparkles, Home } from "lucide-react";
+import { BarChart2, HelpCircle, Info, Sparkles, Home} from "lucide-react";
 import { motion } from "framer-motion";
 
 const Navigation = () => {

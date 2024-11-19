@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-blue-950 dark:to-blue-900">
       <Navigation />
-      
+
       <Element name="hero">
         <Hero />
       </Element>

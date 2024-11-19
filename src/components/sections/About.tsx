@@ -33,7 +33,7 @@ const About = () => {
             <div>
               <p className="text-black dark:text-blue-300 text-lg leading-relaxed mb-2">
                 OTORI is the world's first tokenized BTC fund platform built for exclusive
-                access to early-stage blockchain investments.
+                access to early-stage Distributed Ledger Technology (DLT) investments.
               </p>
 
               <button
@@ -51,7 +51,7 @@ const About = () => {
                 <div className="space-y-3 pt-2">
                   <p className="text-black dark:text-blue-300 text-lg">
                     <span className="font-semibold">Pioneering Platform:</span> The first tokenized
-                    BTC fund platform designed for exclusive early-stage blockchain investments.
+                    BTC fund platform designed for exclusive early-stage DLT (like blockchain) investments.
                   </p>
                   <p className="text-black dark:text-blue-300 text-lg">
                     <span className="font-semibold">Transparency & Security:</span> Combines robust

@@ -1,23 +1,23 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+const config = {
   darkMode: ['class'],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    './{src,pages,components,app}/**/*.{ts,tsx}'
   ],
   theme: {
     extend: {
       borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
+        lg: 'var(--radius, 0.5rem)',
+        md: 'calc(var(--radius, 0.5rem) - 2px)',
+        sm: 'calc(var(--radius, 0.5rem) - 4px)',
       },
       colors: {
-        default: 'rgb(52, 62, 124)', // Renamed to default
+        baseColor: 'rgb(52, 62, 124)',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+        navy: {
+          900: '#1a237e',
+        },
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
@@ -74,4 +74,11 @@ export default {
     },
   },
   plugins: [require('tailwindcss-animate')],
-};
+}
+
+// Use a conditional export to support both CommonJS and ES modules
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = config;
+} else {
+  export default config;
+}
